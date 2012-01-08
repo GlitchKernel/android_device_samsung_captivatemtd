@@ -14,22 +14,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE=captivatemtd
+DEVICE=galaxysmtd
 COMMON=aries-common
 MANUFACTURER=samsung
 
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 mkdir -p ../../../vendor/$MANUFACTURER/$COMMON/proprietary
 
-# captivatemtd
-adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/lib/libsecril-client.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/lib/libsec-ril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+# galaxysmtd
 adb pull /system/etc/gps.conf ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/vendor/bin/gpsd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/vendor/etc/gps.xml ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/vendor/lib/hw/gps.aries.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/lib/libril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/lib/libsecril-client.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/lib/libsec-ril.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/bin/rild ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libsamsungcamera.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libcamera.so
 adb pull /radio/modem.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
@@ -62,7 +62,6 @@ adb pull /system/lib/libActionShot.so ../../../vendor/$MANUFACTURER/$COMMON/prop
 adb pull /system/lib/libarccamera.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary
 adb pull /system/lib/libcamera_client.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary
 adb pull /system/lib/libcamerafirmwarejni.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary
-adb pull /system/lib/libcameraservice.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary
 adb pull /system/lib/libCaMotion.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary
 adb pull /system/lib/libcaps.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary
 adb pull /system/lib/libPanoraMax1.so ../../../vendor/$MANUFACTURER/$COMMON/proprietary
@@ -132,15 +131,16 @@ PRODUCT_COPY_FILES := \\
 
 # All the blobs necessary for galaxys devices
 PRODUCT_COPY_FILES += \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libril.so:system/lib/libril.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsecril-client.so:system/lib/libsecril-client.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsec-ril.so:system/lib/libsec-ril.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rild:system/bin/rild \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gps.conf:system/etc/gps.conf \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gpsd:system/vendor/bin/gpsd \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gps.xml:system/vendor/etc/gps.xml \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gps.aries.so:system/vendor/lib/hw/gps.aries.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libril.so:system/lib/libril.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsecril-client.so:system/lib/libsecril-client.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsec-ril.so:system/lib/libsec-ril.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rild:system/bin/rild \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:system/lib/libsamsungcamera.so
+
 EOF
 
 
@@ -192,7 +192,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libarccamera.so:system/lib/libarccamera.so \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libcamera_client.so:system/lib/libcamera_client.so \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libcamerafirmwarejni.so:system/lib/libcamerafirmwarejni.so \\
-    vendor/__MANUFACTURER__/__COMMON__/proprietary/libcameraservice.so:system/lib/libcameraservice.so \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libCaMotion.so:system/lib/libCaMotion.so \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libcaps.so:system/lib/libcaps.so \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/libPanoraMax1.so:system/lib/libPanoraMax1.so \\
@@ -242,6 +241,5 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/chargingwarning.qmg:system/media/chargingwarning.qmg \\
     vendor/__MANUFACTURER__/__COMMON__/proprietary/Disconnected.qmg:system/media/Disconnected.qmg
 EOF
-
 
 ./setup-makefiles.sh
